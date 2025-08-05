@@ -1,0 +1,39 @@
+CREATE TABLE location (
+    location_id SERIAL PRIMARY KEY,
+    location_name VARCHAR(100),
+    address VARCHAR(255),
+    city VARCHAR(100),
+    state VARCHAR(50),
+    zip_code VARCHAR(10)
+);
+CREATE TABLE staff (
+    staff_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    position VARCHAR(50),
+    hire_date DATE,
+    location_id INT REFERENCES location(location_id) ON DELETE SET NULL
+);
+CREATE TABLE supplier (
+    supplier_id SERIAL PRIMARY KEY,
+    supplier_name VARCHAR(100),
+    contact_email VARCHAR(100),
+    phone_number VARCHAR(20)
+);
+CREATE TABLE product (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100),
+    category VARCHAR(50),
+    price DECIMAL(6,2) CHECK (price >= 0),
+    supplier_id INT REFERENCES supplier(supplier_id) ON DELETE SET NULL
+);
+DROP TABLE IF EXISTS sale;
+DROP TABLE IF EXISTS product;
+CREATE TABLE sale (
+    sale_id SERIAL PRIMARY KEY,
+    sale_date DATE,
+    product_id INT REFERENCES product(product_id),
+    staff_id INT REFERENCES staff(staff_id),
+    quantity_sold INT CHECK (quantity_sold >= 0),
+    total_amount DECIMAL(8,2)
+);

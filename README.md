@@ -1,1 +1,5 @@
-# CourseraProj1_30050
+The mission is to develop a centralized and efficient relational database system that consolidates existing fragmented data across systems and enables the coffee shop chain to streamline operations, scale nationwide, and make faster, data-driven decisions.
+The objective of this project is to design a centralized and efficient relational database that integrates data from various sources, supports operational efficiency, and enables the coffee shop chain’s national expansion. The system ensures data integrity through normalization and key constraints, provides accessible data via views, and supports compatibility with platforms like MySQL for future scalability and reporting.
+
+The requirement gathering process involves understanding the coffee shop chain’s need to centralize data scattered across POS systems, accounting software, supplier databases, and spreadsheets. The new system must support core functions such as managing staff, locations, products, suppliers, and sales. It should ensure data consistency through normalization and key constraints, while also enabling efficient reporting through views. Additionally, the system must allow smooth export/import across different platforms like MySQL, and be scalable to accommodate future expansion.
+
